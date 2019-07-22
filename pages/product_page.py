@@ -15,5 +15,5 @@ class ProductPage(BasePage):
         good = self.browser.find_element(*ProductPageLocators.GOOD).text
         price_check = self.browser.find_element(*ProductPageLocators.PRICE_CHECK).text
         goods_check = self.browser.find_element(*ProductPageLocators.GOOD_CHECK).text
-        assert price in price_check, "Price not Correct!"
-        assert good in goods_check, "Good is not same!"
+        assert price == price_check, "Price not Correct!"
+        assert good == goods_check, "Good is not same!"

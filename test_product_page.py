@@ -1,10 +1,13 @@
 from .pages.product_page import ProductPage
+import pytest
+
+product_base_link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
+urls = [f"{product_base_link}/?promo=offer{no}" for no in range(10)]
 
 
-link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+@pytest.mark.parametrize('link', urls)
 
-
-def test_guest_can_add_goods_to_cart(browser):
+def test_guest_can_add_goods_to_cart(browser, link):
     cart = ProductPage(browser, link)
     cart.open()
     cart.add_to_cart()
