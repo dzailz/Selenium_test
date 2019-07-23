@@ -10,10 +10,10 @@ class ProductPage(BasePage):
     def executing_alert(self):
         alert = self.solve_quiz_and_get_code()
 
-    def price_and_goods_correct(self):
+    def price_and_items_correct(self):
         price = self.browser.find_element(*ProductPageLocators.PRICE).text
-        good = self.browser.find_element(*ProductPageLocators.GOOD).text
+        item = self.browser.find_element(*ProductPageLocators.GOOD).text
         price_check = self.browser.find_element(*ProductPageLocators.PRICE_CHECK).text
-        goods_check = self.browser.find_element(*ProductPageLocators.GOOD_CHECK).text
-        assert price == price_check, "Price not Correct!"
-        assert good == goods_check, "Good is not same!"
+        items_check = self.browser.find_element(*ProductPageLocators.GOOD_CHECK).text
+        assert price == price_check, "Price is not correct!"
+        assert item == items_check, "Wrong item or name of item!"
