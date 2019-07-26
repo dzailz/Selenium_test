@@ -1,6 +1,10 @@
 from selenium.webdriver.common.by import By
 
 
+class BasePageLocators(object):
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+
+
 class CartLocators(object):
     CART_IS_EMPTY = (By.XPATH, "/html/body/div[2]/div/div[3]/div[2]/p")
     ITEMS_IN_CART = (By.XPATH, "/html/body/div[2]/div/div[3]/div[2]/div[1]/div/h2")
@@ -14,6 +18,10 @@ class MainPageLocators(object):
 class LoginPageLocators(object):
     LOGIN_FORM = (By.ID, "login_form")
     REGISTER_FORM = (By.ID, "register_form")
+    EMAIL = (By.ID, "id_registration-email")
+    PASSWORD1 = (By.ID, "id_registration-password1")
+    PASSWORD2 = (By.ID, "id_registration-password2")
+    REGISTER_BUTTON = (By.CSS_SELECTOR, "[name='registration_submit']")
 
 
 class ProductPageLocators(object):
