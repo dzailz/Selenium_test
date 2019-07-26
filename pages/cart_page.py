@@ -12,4 +12,4 @@ class CartPage(BasePage):
 
     def should_not_be_items_in_cart(self):
         assert self.is_not_element_present(*CartLocators.ITEMS_IN_CART), \
-        "Item(s) in cart but shouldn't be"
+            "Item(s) in cart but shouldn't be"
