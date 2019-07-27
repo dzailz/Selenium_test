@@ -3,6 +3,10 @@ from .locators import CartLocators
 
 
 class CartPage(BasePage):
+    def cart_page(self):
+        self.should_be_cart_page()
+        self.cart_is_empty()
+        self.should_not_be_items_in_cart()
     def cart_is_empty(self):
         cart = self.browser.find_element(*CartLocators.CART_IS_EMPTY)
         assert "Your basket is empty" in cart.text

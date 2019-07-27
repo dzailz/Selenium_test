@@ -51,16 +51,17 @@ def test_guest_cant_see_product_in_cart_opened_from_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.go_to_cart_page()
-    cart_page = CartPage(browser, browser.current_url)
-    cart_page.should_be_cart_page()
+    c_page = CartPage(browser, browser.current_url)
+    c_page.cart_page()
 
 
 @pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/"
-    login = ProductPage(browser, link)
+    login = LoginPage(browser, link)
     login.open()
     login.go_to_login_page()
+    login.should_be_login_page()
 
 
 def test_guest_cant_see_success_message_after_adding_product_to_cart(browser):
